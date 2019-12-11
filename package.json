@@ -1,0 +1,41 @@
+{
+  "name": "hmbird-ssr",
+  "version": "2.0.0",
+  "description": "HMbird",
+  "main": "webpack.config.js",
+  "scripts": {
+    "output": "hmbird output",
+    "dev": "hmbird dev",
+    "build": "hmbird build",
+    "build:server": "babel server --out-dir dist/server  --copy-files",
+    "start": "node server/start.js",
+    "arthur-start": "pm2 start server/app.js --name=hmbirdSsrService",
+    "arthur-stop": "pm2 stop hmbirdSsrService",
+    "arthur": "npm run build:server",
+    "lint": "eslint src/pages --fix && eslint src/components --fix && eslint server --fix"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "DaZJean",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "es6-promise": "^4.2.8",
+    "history": "^4.7.2",
+    "hmbird": "^2.0.2",
+    "isomorphic-fetch": "^2.2.1",
+    "koa": "^2.6.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.3.1"
+  }
+}
