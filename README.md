@@ -45,3 +45,44 @@ module.exports = {
 npm run build with-react // 必须先执行构建输出 静态资源目录存放于 dist/client/with-react目录下
 npm run output with-react   // 最终输出的html资源存放于 _output目录下
 ```
+
+
+## 自定义webpack
+样式默认支持scss,css,less
+脚本支持js,jsx以及默认集成url-loader
+```
+// webpack.config.js
+'use strict';
+process.env.NODE_ENV = 'development'; //设置当前环境
+var optimist = require('optimist');
+var cateName = optimist.argv.cate || 0; //0 来源entry构建
+let { getDevconfig } = require('hmbird/lib/webpack/devconfig');
+
+let config = getDevconfig(cateName);
+module.exports = config;
+
+
+
+// package.json
+"script":{
+    "dev": "webpack-dev-server  --progress --colors --cate",
+}
+
+
+//  webpack.config.build.js
+'use strict';
+process.env.NODE_ENV = 'production'; //设置当前环境
+var optimist = require('optimist');
+var cateName = optimist.argv.cate || 0; //0 来源entry构建
+let { getProconfig } = require('hmbird/lib/webpack/proconfig');
+
+let config = getProconfig(cateName, true);
+module.exports = config;
+
+
+// package.json
+"script":{
+    "build": "webpack --config webpack.config_build.js -p  --cate",
+}
+
+```
