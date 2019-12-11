@@ -1,11 +1,4 @@
 ## 使用
-### 安装
-```
-    npm install -g hmbird-cli
-    
-    hmbird init yourproject
-```
-
 ### 客户端渲染开发
 ``` 
    npm run dev 
@@ -22,7 +15,7 @@
 ```
 
 ### 开发调试  
-- 客户端渲染   localhost:9990/with-react
+- 客户端渲染   localhost:8080/with-react
 - 服务端渲染  localhost:8001/with-react
 
 
@@ -39,7 +32,11 @@
 
 ## 静态资源CDN部署
 ```
-
+## config/hmbird.config.js
+module.exports = {
+       prefixCDN:'xxx.cnd.com.cn/hmbird/'  
+}
+// 设置成这的时候，生成环境构建时npm run build会自动在引用js,css,img前缀前添加cdn地址
 ```
 
 
