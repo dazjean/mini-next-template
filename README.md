@@ -32,9 +32,9 @@
 
 ## 静态资源CDN部署
 ```
-## config/hmbird.config.js
+## config/mini-next.config.js
 module.exports = {
-       prefixCDN:'xxx.cnd.com.cn/hmbird/'  
+       prefixCDN:'xxx.cnd.com.cn/mini-next/'  
 }
 // 设置成这的时候，生成环境构建时npm run build会自动在引用js,css,img前缀前添加cdn地址
 ```
@@ -43,7 +43,7 @@ module.exports = {
 ## 项目静态资源导出
 ```
 npm run build with-react // 必须先执行构建输出 静态资源目录存放于 dist/client/with-react目录下
-npm run output with-react   // 最终输出的html资源存放于 _output目录下
+npm run output with-react   // 最终输出的html资源存放于 .mini-next目录下
 ```
 
 
@@ -56,7 +56,7 @@ npm run output with-react   // 最终输出的html资源存放于 _output目录�
 process.env.NODE_ENV = 'development'; //设置当前环境
 var optimist = require('optimist');
 var cateName = optimist.argv.cate || 0; //0 来源entry构建
-let { getDevconfig } = require('hmbird/lib/webpack/devconfig');
+let { getDevconfig } = require('mini-next/lib/webpack/devconfig');
 
 let config = getDevconfig(cateName);
 module.exports = config;
@@ -74,7 +74,7 @@ module.exports = config;
 process.env.NODE_ENV = 'production'; //设置当前环境
 var optimist = require('optimist');
 var cateName = optimist.argv.cate || 0; //0 来源entry构建
-let { getProconfig } = require('hmbird/lib/webpack/proconfig');
+let { getProconfig } = require('mini-next/lib/webpack/proconfig');
 
 let config = getProconfig(cateName, true);
 module.exports = config;

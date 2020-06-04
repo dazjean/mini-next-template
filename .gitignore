@@ -7,5 +7,5 @@ npm-debug.log
 package-lock.json
 */**/.DS_Store
 build_server
-_output
-hmbird/lib
+.mini-next
+mini-next/lib
